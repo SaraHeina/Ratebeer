@@ -11,9 +11,15 @@
   <%= link_to 'breweries', breweries_path %>
   <%= link_to 'beers', beers_path %>
   <%= link_to 'ratings', ratings_path %>
+
 </div>
 
+<% if not current_user.nil? %>
+    <p><%= current_user.username %> signed in</p>
+<% end %>
+
 <%= yield %>
+
 
 </body>
 </html>
