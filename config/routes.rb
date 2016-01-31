@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :users
   resources :beers
   resources :breweries
-  resource :session, only: [:new, :create, :delete]
+  resource :session, only: [:new, :create, :destroy]
 
   root 'breweries#index'
 
