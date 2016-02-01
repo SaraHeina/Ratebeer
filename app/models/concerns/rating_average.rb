@@ -3,7 +3,6 @@
   module RatingAverage
     extend ActiveSupport::Concern
     def average_rating
-      sum = self.ratings.map { |r| r.score }
-      sum.sum/sum.count.to_f
+      ratings.inject(0.0){ |sum, r| sum+r.score } / ratings.count
     end
   end

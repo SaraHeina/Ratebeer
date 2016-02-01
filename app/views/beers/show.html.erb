@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= @beer %>
+
 <p>
   <strong>Name:</strong>
   <%= @beer.name %>
@@ -23,5 +25,4 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_beer_path(@beer) %> |
-<%= link_to 'Back', beers_path %>
+<%= link_to 'Edit', edit_beer_path(@beer) %>

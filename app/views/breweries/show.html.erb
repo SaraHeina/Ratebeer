@@ -2,7 +2,9 @@
 
 <h2><%=@brewery.name%></h2>
 
-<p>Established in <%= @brewery.year %></p>
+<em>Established at
+  <%= @brewery.year %>
+</em>
 
 <p>Number of beers <%= @brewery.beers.count %></p>
 
@@ -14,9 +16,9 @@
 
 <p>
   <% if @brewery.ratings.empty? %>
-      has not ratings!
+      brewery has not ratings!
   <% else %>
-      has <%=pluralize(@brewery.ratings.count, 'rating') %>, average <%= @brewery.average_rating %>
+      brewery has <%=pluralize(@brewery.ratings.count, 'rating') %>, average <%= @brewery.average_rating %>
   <% end %>
 </p>
 
