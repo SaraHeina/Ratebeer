@@ -40,9 +40,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if current_user == @user
       respond_to do |format|
-        if @user.update(user_params)
+        if @user.update(user_params) and @user == current_user and @user.update(user_params)
           format.html { redirect_to @user, notice: 'User was successfully updated.' }
           format.json { render :show, status: :ok, location: @user }
         else
@@ -50,9 +49,6 @@ class UsersController < ApplicationController
           format.json { render json: @user.errors, status: :unprocessable_entity }
         end
       end
-    else
-      return redirect_to user_path
-    end
   end
 
   # DELETE /users/1
