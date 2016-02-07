@@ -25,71 +25,52 @@ class User < ActiveRecord::Base
     ratings.order(score: :desc).limit(1).first.beer
   end
 
+  def favorite_brewery
+    return nil if ratings.empty?
+    bre = {}
+    ratings.each do |rating|
+      bre[rating.beer.brewery] = 0
+    end
+    ratings.each do |rating|
+      bre.keys.each do |brewery|
+        if brewery == rating.beer.brewery
+          bre[brewery] = bre[brewery] + rating.score
+        end
+      end
+    end
+    iso = 0
+    tulos = ""
+    bre.each do |score|
+        if score.last > iso
+          iso = score.last
+          tulos = score.first.name
+        end
+    end
+    return tulos
+  end
+
   def favorite_style
     return nil if ratings.empty?
-    array = [lager, weizen, pale_ale, ipa, porter]
-    a = array.sort
-    if lager == a.last
-      return "Lager"
-    elsif weizen == a.last
-      return "Weizen"
-    elsif pale_ale == a.last
-      return "Pale ale"
-    elsif ipa == a.last
-      return "IPA"
-    else
-      return "Porter"
-      end
-  end
-
-  def lager
-    summa = 0
+    sty = {}
     ratings.each do |rating|
-      if rating.beer.style == "Lager"
-        summa = summa + rating.score
+      sty[rating.beer.style] = 0
+    end
+    ratings.each do |rating|
+      sty.keys.each do |style|
+        if style == rating.beer.style
+          sty[style] = sty[style] + rating.score
+        end
       end
     end
-    return summa
-  end
-
-  def weizen
-    summa = 0
-    ratings.each do |rating|
-      if rating.beer.style == "Weizen"
-        summa = summa + rating.score
+    iso = 0
+    tulos = ""
+    sty.each do |score|
+      if score.last > iso
+        iso = score.last
+        tulos = score.first
       end
     end
-    return summa
-  end
-
-  def pale_ale
-    summa = 0
-    ratings.each do |rating|
-      if rating.beer.style == "Pale ale"
-        summa = summa + rating.score
-      end
+    return tulos
     end
-    return summa
-  end
-
-  def ipa
-    summa = 0
-    ratings.each do |rating|
-      if rating.beer.style == "IPA"
-        summa = summa + rating.score
-      end
-    end
-    return summa
-  end
-
-  def porter
-    summa = 0
-    ratings.each do |rating|
-      if rating.beer.style == "Porter"
-        summa = summa + rating.score
-      end
-    end
-    return summa
-  end
 
 end

@@ -33,6 +33,14 @@
 </p>
 
 <p>
+  <% if @user.favorite_brewery.nil? %>
+      user has no favorite brewery!
+  <% else %>
+      favorite brewery <%= @user.favorite_brewery %>
+  <% end %>
+</p>
+
+<p>
   <strong>ratings</strong>
 <ul>
   <% @user.ratings.each do |rating| %>
