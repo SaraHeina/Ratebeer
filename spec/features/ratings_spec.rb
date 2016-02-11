@@ -25,4 +25,22 @@ describe "Rating" do
     expect(beer1.ratings.count).to eq(1)
     expect(beer1.average_rating).to eq(15.0)
   end
-end
+
+  it "lists the ratings and their total number" do
+    rating = FactoryGirl.create(:rating, beer:beer1, user:user)
+    rating2 = FactoryGirl.create(:rating, beer:beer2, user:user)
+    visit ratings_path
+    expect(page).to have_content "Number of ratings: 2"
+    expect(page).to have_content "#{rating}"
+    expect(page).to have_content "#{rating2}"
+  end
+
+   it "rating is deleted" do
+    rating = FactoryGirl.create(:rating, beer:beer1, user:user)
+     visit user_path(user)
+     click_link "delete"
+    expect(user.ratings.count).to eq(0)
+    expect(Rating.count).to eq(0)
+   end
+
+  end
