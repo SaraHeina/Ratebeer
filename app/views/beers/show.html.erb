@@ -25,4 +25,7 @@
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_beer_path(@beer) %>
+<% if not current_user.nil? %>
+<%= link_to 'Edit', edit_beer_path(@beer) %> <br>
+    <%= link_to 'Destroy beer', @beer, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
