@@ -8,7 +8,8 @@
 <%= @place.zip %> <%= @place.city %>
 <br>
 <% likki =  @place.blogmap %>
-<% if Rails.env.production? %>
+<% if Rails.env == "development" %>
+    <% else %>
     <% likki[4] = "s:"%>
 <%end%>
 <br>
