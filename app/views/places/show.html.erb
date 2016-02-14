@@ -9,9 +9,9 @@
 <br>
 <% likki = @place.blogmap %>
 <% if  Rails.env == "development" %>
-    <% likki = @place.blogmap %>
+    <iframe src=<%=likki%>, height="250"></iframe>
 <% else %>
     <% likki[4] = "s:"%>
+    <iframe src=<%=likki%>, height="250"></iframe>
 <%end%>
 <br>
-<iframe src=<%= likki%>, height="250"></iframe>
