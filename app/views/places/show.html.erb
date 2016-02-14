@@ -9,9 +9,8 @@
 <br>
 <% likki = @place.blogmap %>
 <% if  Rails.env.production? %>
-    <% likki = @place.blogmap %>
-<% else %>
     <% likki[4] = "s:"%>
+<% else %>
 <%end%>
 <br>
 <iframe src=<%= likki%>, height="250"></iframe>
