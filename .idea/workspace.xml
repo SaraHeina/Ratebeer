@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6527f775-9074-4dc0-8992-fb5fa4034abb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/places_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/places_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/places/index.html.erb" afterPath="$PROJECT_DIR$/app/views/places/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/.resultset.json" afterPath="$PROJECT_DIR$/coverage/.resultset.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/coverage/index.html" afterPath="$PROJECT_DIR$/coverage/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/beermapping_api.rb" afterPath="$PROJECT_DIR$/lib/beermapping_api.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/lib/beermapping_api_spec.rb" afterPath="$PROJECT_DIR$/spec/lib/beermapping_api_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/places/show.html.erb" afterPath="$PROJECT_DIR$/app/views/places/show.html.erb" />
     </list>
     <ignored path="ratebeer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/app/views/places/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.36231884">
-              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -146,8 +139,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="190" />
-    <option name="y" value="106" />
+    <option name="x" value="351" />
+    <option name="y" value="116" />
     <option name="width" value="1031" />
     <option name="height" value="509" />
   </component>
@@ -564,7 +557,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="190" y="106" width="1031" height="509" extended-state="0" />
+    <frame x="351" y="116" width="1031" height="509" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21726479" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -977,7 +970,7 @@
     <entry file="file://$PROJECT_DIR$/app/views/places/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.36231884">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
           <folding />
         </state>
       </provider>
