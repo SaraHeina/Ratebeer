@@ -35,8 +35,8 @@
       <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/places/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36231884">
-              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.28985506">
+              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -139,8 +139,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="351" />
-    <option name="y" value="116" />
+    <option name="x" value="270" />
+    <option name="y" value="123" />
     <option name="width" value="1031" />
     <option name="height" value="509" />
   </component>
@@ -557,7 +557,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="351" y="116" width="1031" height="509" extended-state="1" />
+    <frame x="270" y="123" width="1031" height="509" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21726479" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -969,8 +969,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/places/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36231884">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.28985506">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding />
         </state>
       </provider>
