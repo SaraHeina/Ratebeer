@@ -8,9 +8,10 @@
 <%= @place.zip %> <%= @place.city %>
 <br>
 <% likki = @place.blogmap %>
-<% if  Rails.env.production? %>
-    <% likki[4] = "s:"%>
+<% if  Rails.env == "development" %>
+    <% likki = @place.blogmap %>
 <% else %>
+    <% likki[4] = "s:"%>
 <%end%>
 <br>
 <iframe src=<%= likki%>, height="250"></iframe>
