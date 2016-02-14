@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%=@place.name%></h2>
+<br>
+<%= @place.street %>
+<br>
+<br>
+<%= @place.zip %> <%= @place.city %>
+<br>
+<% likki =  @place.blogmap %>
+<% if Rails.env != "development" %>
+    <% likki[4] = "s:"%>
+<%end%>
+<iframe src=<%= likki %>></iframe>

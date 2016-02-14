@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-02-13T19:44:09+02:00">2016-02-13T19:44:09+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-02-14T17:02:45+02:00">2016-02-14T17:02:45+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.36
+         2.39
        </span>
     </span> hits/line)
   </h2>
@@ -287,7 +287,7 @@
         <td>15</td>
         <td>15</td>
         <td>0</td>
-        <td>2.5</td>
+        <td>3.3</td>
       </tr>
       
     </tbody>
@@ -718,7 +718,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.5
+         3.3
        </span>
     </span> hits/line)
   </h2>
@@ -750,7 +750,7 @@
         <td>15</td>
         <td>15</td>
         <td>0</td>
-        <td>2.5</td>
+        <td>3.3</td>
       </tr>
       
     </tbody>
@@ -5192,16 +5192,16 @@
           <code class="ruby">  def self.places_in(city)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="3">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="3">
+          <span class="hits">5</span>
           
           <code class="ruby">    city = city.downcase</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="4">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="9" data-linenumber="4">
+          <span class="hits">9</span>
           
-          <code class="ruby">    Rails.cache.fetch(city) { fetch_places_in(city) }</code>
+          <code class="ruby">    Rails.cache.fetch(city,expires_in: 7.days) { fetch_places_in(city) }</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
@@ -5234,8 +5234,8 @@
           <code class="ruby">  def self.fetch_places_in(city)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="10">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="10">
+          <span class="hits">4</span>
           
           <code class="ruby">    url = &quot;http://beermapping.com/webservice/loccity/#{key}/&quot;</code>
         </li>
@@ -5246,14 +5246,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="12">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="12">
+          <span class="hits">4</span>
           
           <code class="ruby">    response = HTTParty.get &quot;#{url}#{ERB::Util.url_encode(city)}&quot;</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="13">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="13">
+          <span class="hits">4</span>
           
           <code class="ruby">    places = response.parsed_response[&quot;bmp_locations&quot;][&quot;location&quot;]</code>
         </li>
@@ -5264,8 +5264,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="15">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="15">
+          <span class="hits">4</span>
           
           <code class="ruby">    return [] if places.is_a?(Hash) and places[&#39;id&#39;].nil?</code>
         </li>
@@ -5276,20 +5276,20 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="17">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="17">
+          <span class="hits">3</span>
           
           <code class="ruby">    places = [places] if places.is_a?(Hash)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="18">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="18">
+          <span class="hits">3</span>
           
           <code class="ruby">    places.inject([]) do | set, place |</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="19">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="19">
+          <span class="hits">5</span>
           
           <code class="ruby">      set &lt;&lt; Place.new(place)</code>
         </li>
@@ -5318,8 +5318,8 @@
           <code class="ruby">  def self.key</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="24">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="4" data-linenumber="24">
+          <span class="hits">4</span>
           
           <code class="ruby">    &quot;95920610439fbe7063eb57bae20e18fe&quot;</code>
         </li>
