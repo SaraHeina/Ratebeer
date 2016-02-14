@@ -4,9 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/app/controllers/memberships_controller.rb" line="30" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6527f775-9074-4dc0-8992-fb5fa4034abb" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/places/show.html.erb" afterPath="$PROJECT_DIR$/app/views/places/show.html.erb" />
-    </list>
+    <list default="true" id="6527f775-9074-4dc0-8992-fb5fa4034abb" name="Default" comment="" />
     <ignored path="ratebeer.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -515,7 +513,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="216" y="156" width="1031" height="509" extended-state="0" />
+    <frame x="216" y="156" width="1031" height="509" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21726479" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
