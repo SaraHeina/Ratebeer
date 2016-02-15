@@ -7,11 +7,5 @@
 <br>
 <%= @place.zip %> <%= @place.city %>
 <br>
-<% likki = @place.blogmap %>
-<% if  Rails.env == "development" %>
-    <iframe src="<%=likki%>", height="250"></iframe>
-<% else %>
-    
-    <iframe src="<%=likki%>", height="250"></iframe>
-<%end%>
+<iframe src="<%=likki%>", height="250"></iframe>
 <br>
