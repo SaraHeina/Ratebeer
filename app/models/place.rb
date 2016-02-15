@@ -8,6 +8,12 @@ class Place
   end
 
   def self.map_url
-
+   if Rails.env == "development"
+     return blogmap
+   else
+     linkki = :blogmap
+     linkki[4] = "s:"
+     return linkki
+   end
   end
 end
