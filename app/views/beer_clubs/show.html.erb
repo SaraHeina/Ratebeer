@@ -16,7 +16,23 @@
   <% end %>
 </ul>
 
-<% if not current_user.nil? %>
+<% if current_user %>
+    <% if not current_user.in? @beer_club.users %>
+    <%= form_for(@membership) do |f| %>
+        <%= f.hidden_field :beer_club_id %>
+        <%= f.submit value:"join the club" %>
+    <% end %>
+        <br>
+    <% end %>
+    <% @beer_club.users.each do |user| %>
+        <% if user.id == current_user.id %>
+        <%= form_for(@membership, method: "delete") do |f| %>
+            <%= f.hidden_field :beer_club_id %>
+            <%= f.submit value: "end the membership" %>
+        <% end %>
+        <% end %>
+    <% end %>
+        <br>
  <%= link_to 'Edit', edit_beer_club_path(@beer_club) %>
     <br>
  <%= link_to 'Destroy the club', @beer_club, method: :delete, data: { confirm: 'Are you sure?' } %>
