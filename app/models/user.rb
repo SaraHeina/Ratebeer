@@ -53,11 +53,13 @@ class User < ActiveRecord::Base
     return nil if ratings.empty?
     sty = {}
     ratings.each do |rating|
-      sty[rating.beer.style] = 0
+      x = Style.find rating.beer.style_id
+      sty[x.name] = 0
     end
     ratings.each do |rating|
       sty.keys.each do |style|
-        if style == rating.beer.style
+        x = Style.find rating.beer.style_id
+        if style == x.name
           sty[style] = sty[style] + rating.score
         end
       end

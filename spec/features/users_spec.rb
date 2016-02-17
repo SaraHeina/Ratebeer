@@ -49,8 +49,10 @@ describe "User" do
     let! (:use1) {FactoryGirl.create :user, username:"bebe", password:"Seccun1", password_confirmation:"Seccun1"}
     let! (:brewery) { FactoryGirl.create :brewery, name:"Koff" }
     let! (:brewery2) { FactoryGirl.create :brewery, name:"Koff2" }
-    let! (:beer) {FactoryGirl.create :beer, name:"iso 3", style:"Large", brewery:brewery}
-    let! (:beer2) {FactoryGirl.create :beer, name:"iso 1", style:"Small", brewery:brewery2}
+    let! (:style) {FactoryGirl.create :style, name:"Large"}
+    let! (:style2) {FactoryGirl.create :style, name:"Small"}
+    let! (:beer) {FactoryGirl.create :beer, name:"iso 3", style:style, brewery:brewery}
+    let! (:beer2) {FactoryGirl.create :beer, name:"iso 1", style:style2, brewery:brewery2}
 
   it "page has favorites if user has rating" do
     FactoryGirl.create(:rating, beer:beer, user:use1)
