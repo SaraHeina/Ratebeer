@@ -4,7 +4,7 @@ rvm:
 env:
 - DB=postgres
 before_script:
-- heroku run rake db:migrate
+- rake db:migrate
 script:
 - bundle exec rake db:migrate --trace
 - RAILS_ENV=test bundle exec rake db:migrate --trace
