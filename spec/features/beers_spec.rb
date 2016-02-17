@@ -4,6 +4,7 @@ include Helpers
 
 describe "Beer" do
   let!(:user) { FactoryGirl.create :user }
+  let!(:style) { FactoryGirl.create :style }
 
   before :each do
     sign_in(username:"Pekka", password:"Foobar1")

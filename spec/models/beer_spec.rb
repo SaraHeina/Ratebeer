@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Beer, type: :model do
   it "is saved if it has name and style" do
+    style = Style.create name:"lager"
     beer = Beer.create name:"Lapin kulta", style_id: 1
 
     expect(beer.valid?).to be(true)
