@@ -1,14 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+<h2>
   <%= @style.name %>
+</h2>
 </p>
 
 <p>
-  <strong>Description:</strong>
   <%= @style.description %>
 </p>
 
-<%= link_to 'Edit', edit_style_path(@style) %> |
+<p>
+  <strong>beers</strong>
+<ul>
+  <% @style.beers.each do |beer| %>
+      <li>
+        <%= link_to beer.name, beer %> by <%= link_to beer.brewery.name, beer.brewery %>
+      </li>
+  <% end %>
+</ul>
+</p>
+<%= link_to 'Edit', edit_style_path(@style) %> <br>
+<%= link_to 'Destroy style', @style, method: :delete, data: { confirm: 'Are you sure?' } %> <br>
 <%= link_to 'Back', styles_path %>
