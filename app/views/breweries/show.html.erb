@@ -23,8 +23,7 @@
 </p>
 
 <% if not current_user.nil? %>
-    <%= link_to 'Edit', edit_brewery_path(@brewery) %>
-    <br>
-    <%= link_to 'Destroy brewery', @brewery, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %> <br>
-<%= link_to 'Back', breweries_path %>
+    <%= link_to 'Edit', edit_brewery_path(@brewery), class:"btn btn-info" %>
+    <%= link_to 'Destroy brewery', @brewery, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<% end %>
+<%= link_to 'Back', breweries_path, class:"btn btn-default" %>

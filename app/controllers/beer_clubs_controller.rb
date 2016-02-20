@@ -14,8 +14,10 @@ class BeerClubsController < ApplicationController
     @membership = Membership.new
     @membership.beer_club = @beer_club
     if @beer_club.memberships.each do |memberships|
+      if not current_user.nil?
       if memberships.user.id == current_user.id
         @membership = memberships
+      end
       end
     end
     end

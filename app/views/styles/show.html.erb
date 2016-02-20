@@ -20,6 +20,6 @@
   <% end %>
 </ul>
 </p>
-<%= link_to 'Edit', edit_style_path(@style) %> <br>
-<%= link_to 'Destroy style', @style, method: :delete, data: { confirm: 'Are you sure?' } %> <br>
-<%= link_to 'Back', styles_path %>
+<%= link_to 'Edit', edit_style_path(@style), class:"btn btn-info" %>
+<%= link_to 'Destroy style', @style, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<%= link_to 'Back', styles_path, class:"btn btn-default" %>
