@@ -6,10 +6,9 @@
 </h2>
 </p>
 
-<p>
+<quote>
   <%= @style.description %>
-</p>
-
+</quote>
 <p>
   <strong>beers</strong>
 <ul>
@@ -20,6 +19,5 @@
   <% end %>
 </ul>
 </p>
-<%= link_to 'Edit', edit_style_path(@style), class:"btn btn-info" %>
-<%= link_to 'Destroy style', @style, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<%= edit_and_destroy_buttons(@style) %>
 <%= link_to 'Back', styles_path, class:"btn btn-default" %>

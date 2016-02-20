@@ -1,24 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h2><%=@brewery.name%></h2>
+<h2><%=@brewery.name%>
+  <% if not @brewery.active  %>
+      <span class="label label-info">retired</span>
+  <% end %>
+</h2>
 
-<em>Established at
+<em>Established year:
   <%= @brewery.year %>
 </em>
 
 <p>Number of beers <%= @brewery.beers.count %></p>
 
-<p>
+<ul>
   <% @brewery.beers.each do |beer| %>
       <%= link_to beer.name, beer %>
   <% end %>
-</p>
+</ul>
 
 <p>
   <% if @brewery.ratings.empty? %>
-      brewery has not ratings!
+      beers of the brewery have not yet been rated!
   <% else %>
-      brewery has <%=pluralize(@brewery.ratings.count, 'rating') %>, average <%= @brewery.average_rating %>
+      Has <%=pluralize(@brewery.ratings.count, 'rating') %>, average <%= @brewery.average_rating %>
   <% end %>
 </p>
 
@@ -26,4 +30,3 @@
     <%= link_to 'Edit', edit_brewery_path(@brewery), class:"btn btn-info" %>
     <%= link_to 'Destroy brewery', @brewery, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
 <% end %>
-<%= link_to 'Back', breweries_path, class:"btn btn-default" %>
