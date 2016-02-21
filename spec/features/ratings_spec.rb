@@ -31,7 +31,7 @@ describe "Rating" do
     rating = FactoryGirl.create(:rating, beer:beer1, user:user)
     rating2 = FactoryGirl.create(:rating, beer:beer2, user:user)
     visit ratings_path
-    expect(page).to have_content "Number of ratings: 2"
+    expect(page).to have_content "Recent ratings"
     expect(page).to have_content "#{rating}"
     expect(page).to have_content "#{rating2}"
   end
