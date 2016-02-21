@@ -2,7 +2,15 @@
 
 
 <p>
-<h2><%= @user.username %></h2>
+<h2><%= @user.username %>
+  <% if current_user %>
+      <% if current_user.admin %>
+          <% if @user.isfrozen %>
+              <span class="label label-info">account frozen</span>
+          <% end %>
+      <% end %>
+  <% end %>
+</h2>
 </p>
 
 <p>
@@ -57,5 +65,15 @@
 <% if @user == current_user %>
 <%= link_to 'Edit', edit_user_path(@user), class:"btn btn-info" %>
 <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<% end %>
+<% if current_user %>
+    <% if current_user.admin %>
+        <% if @user.isfrozen %>
+    <%= link_to "reactivate account", toggle_isfrozen_user_path(@user.id), method: :post, class: "btn btn-danger" %>
+        <% end %>
+        <% if not @user.isfrozen %>
+            <%= link_to "froze account", toggle_isfrozen_user_path(@user.id), method: :post, class: "btn btn-danger" %>
+        <% end %>
+    <% end %>
 <% end %>
 <%= link_to 'Back', users_path, class:"btn btn-default" %>

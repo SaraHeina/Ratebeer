@@ -36,6 +36,8 @@
 <% if not current_user.nil? %>
         <br>
 <%= link_to 'Edit', edit_beer_path(@beer), class:"btn btn-info" %>
+        <% if current_user.admin%>
     <%= link_to 'Destroy beer', @beer, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger"%>
+        <% end %>
 <% end %>
 <% end %>

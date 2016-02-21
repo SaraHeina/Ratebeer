@@ -19,5 +19,8 @@
   <% end %>
 </ul>
 </p>
-<%= edit_and_destroy_buttons(@style) %>
 <%= link_to 'Back', styles_path, class:"btn btn-default" %>
+<% if current_user.admin%>
+<%= edit_and_destroy_buttons(@style) %>
+<% end %>
+

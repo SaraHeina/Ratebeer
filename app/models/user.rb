@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :beers, through: :ratings
   has_many :beer_clubs, through: :memberships
 
+  scope :is_frozen, -> { where isfrozen:true }
+  scope :is_not_frozen, -> { where isfrozen:[nil,false] }
+
   validates :username, uniqueness: true
   validates :username, length: { minimum: 3 }
   validates :username, length: { maximum: 15 }

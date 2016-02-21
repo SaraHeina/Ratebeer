@@ -2,9 +2,13 @@ Rails.application.routes.draw do
   resources :styles
   resources :memberships
   resources :beer_clubs
-  resources :users
+  resources :users do
+  post 'toggle_isfrozen', on: :member
+end
   resources :beers
-  resources :breweries
+  resources :breweries do
+    post 'toggle_activity', on: :member
+  end
   resource :session, only: [:new, :create, :destroy]
 
   root 'breweries#index'
