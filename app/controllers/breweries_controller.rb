@@ -3,9 +3,43 @@ class BreweriesController < ApplicationController
   before_action :ensure_that_signed_in, except: [:index, :show]
   # GET /breweries
   # GET /breweries.json
+  def list
+  end
+
   def index
+    @breweries = Brewery.all
     @active_breweries = Brewery.active
     @retired_breweries = Brewery.retired
+
+    order = params[:order] || 'name'
+
+    if order == 'name'
+      if session[:last_order] == 'name_a'
+        active = @active_breweries.sort_by{ |b| b.name }.reverse
+        retired = @retired_breweries.sort_by{ |b| b.name }.reverse
+        session[:last_order] = 'name_d'
+      else
+        active = @active_breweries.sort_by{ |b| b.name }
+        retired = @retired_breweries.sort_by{ |b| b.name }
+        session[:last_order] = 'name_a'
+      end
+    elsif order == 'year'
+      if session[:last_order] == 'year_a'
+        active = @active_breweries.sort_by{ |b| b.year }.reverse
+        retired = @retired_breweries.sort_by{ |b| b.year }.reverse
+        session[:last_order] = 'year_d'
+      else
+        active = @active_breweries.sort_by{ |b| b.year }
+        retired = @retired_breweries.sort_by{ |b| b.year }
+        session[:last_order] = 'year_a'
+      end
+    else
+      active = @active_breweries.sort_by{ |b| b.name }
+      retired = @retired_breweries.sort_by{ |b| b.name }
+    end
+    @active_breweries = active
+    @retired_breweries = retired
+
   end
 
   # GET /breweries/1
