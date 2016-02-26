@@ -23,6 +23,12 @@ class BeerClubsController < ApplicationController
     end
   end
 
+  def toggle_confirmed
+    membership = Membership.find_by(user_id: params[:user_id], beer_club_id: params[:beer_club_id])
+    membership.update_attribute :confirmed, true
+    redirect_to :back, notice:"Membership accepted!"
+  end
+
   # GET /beer_clubs/new
   def new
     @beer_club = BeerClub.new
@@ -41,6 +47,11 @@ class BeerClubsController < ApplicationController
       if @beer_club.save
         format.html { redirect_to @beer_club, notice: 'Beer club was successfully created.' }
         format.json { render :show, status: :created, location: @beer_club }
+        membership = Membership.new
+        membership.user_id = current_user.id
+        membership.beer_club_id = @beer_club.id
+        membership.confirmed = true
+        membership.save
       else
         format.html { render :new }
         format.json { render json: @beer_club.errors, status: :unprocessable_entity }

@@ -29,7 +29,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty'
 
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -71,9 +70,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
 
-group :test do
-  gem 'factory_girl_rails'
-end
 
 group :test do
   gem 'factory_girl_rails'
@@ -82,7 +78,10 @@ group :test do
   gem 'rspec-its'
   gem 'simplecov', require: false
   gem 'webmock'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
+
 
 gem 'bootstrap-sass'
 group :development do

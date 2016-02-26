@@ -14,21 +14,27 @@
 </p>
 
 <p>
-  <% if @user.ratings.empty? %>
-      user has not made ratings!
-  <% else %>
-      has made <%=pluralize(@user.ratings.count, 'rating') %>, average <%=@user.average_rating%>
-  <% end %>
-</p>
+<h3>Beer clubs</h3>
 
-<p>
   <% if @user.beer_clubs.empty? %>
       user has not joined a club!
   <% else %>
-      member of
+      <strong>member of</strong>
+        <ul>
       <% @user.beer_clubs.each do |club| %>
-          <%= link_to club.name, club %>
+              <%if !club.hasApplied(@user) %>
+          <li><%= link_to club.name, club %></li>
+              <% end %>
       <% end %>
+        </ul>
+      <strong>applied membership of</strong>
+    <ul>
+      <% @user.beer_clubs.each do |club| %>
+          <%if club.hasApplied(@user) %>
+          <li><%= link_to club.name, beer_club_path(club) %></li>
+            <% end %>
+      <% end %>
+      </ul>
   <% end %>
 </p>
 
@@ -49,7 +55,14 @@
 </p>
 
 <p>
-  <strong>ratings</strong>
+  <h3>ratings</h3>
+<p>
+  <% if @user.ratings.empty? %>
+      user has not made ratings!
+  <% else %>
+      has made <%=pluralize(@user.ratings.count, 'rating') %>, average <%=@user.average_rating%>
+  <% end %>
+</p>
 <ul>
   <% @user.ratings.each do |rating| %>
       <li>

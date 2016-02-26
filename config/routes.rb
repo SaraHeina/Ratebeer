@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :styles
   resources :memberships
-  resources :beer_clubs
+  resources :beer_clubs do
+    post 'toggle_confirmed', on: :member
+  end
 
   resources :users do
   post 'toggle_isfrozen', on: :member

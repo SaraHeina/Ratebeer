@@ -9,17 +9,35 @@
   <%= @beer_club.founded %>
 </p>
 
-<strong>Members</strong>
+<h3>Members</h3>
 <ul>
   <% @beer_club.users.each do |user| %>
+      <%if @beer_club.isMember(user) %>
     <li><%= link_to user.username, user_path(user)%></li>
+      <% end %>
   <% end %>
 </ul>
+
+<% if current_user %>
+<% if @beer_club.isMember(current_user) %>
+
+    <h3>Outstanding applications</h3>
+        <ul>
+      <% @beer_club.memberships.each do |membership|  %>
+          <% user1 = @beer_club.users.find_by id: membership.user_id %>
+          <%if !@beer_club.isMember(user1) %>
+                <li><%=user1.username%><%=" "%><%= link_to 'Confirm' , toggle_confirmed_beer_club_path(:user_id => membership.user_id,:beer_club_id => membership.beer_club_id), method: :post, class:'btn btn-primary' %> </li>
+          <% end %>
+      <% end %>
+          </ul>
+<% end %>
+<% end %>
 
 <% if current_user %>
     <% if not current_user.in? @beer_club.users %>
     <%= form_for(@membership) do |f| %>
         <%= f.hidden_field :beer_club_id %>
+        <%= f.hidden_field :confirmed, :value => false %>
         <%= f.submit value:"join the club", class:"btn btn-success" %>
     <% end %>
         <br>

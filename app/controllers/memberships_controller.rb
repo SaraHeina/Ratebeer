@@ -26,6 +26,7 @@ class MembershipsController < ApplicationController
   # POST /memberships.json
   def create
     @membership = Membership.new(membership_params)
+    @membership.confirmed = false
     club = BeerClub.find membership_params[:beer_club_id]
     if not current_user.in? club.users and @membership.save
       current_user.memberships << @membership
