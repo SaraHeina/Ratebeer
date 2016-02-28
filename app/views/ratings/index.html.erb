@@ -1,5 +1,7 @@
 <h1>Rating statistics</h1>
 
+<% cache "ratinglist-#{@order}", skip_digest: true do %>
+
 <div class="row">
   <div class="col-xs-8 col-sm-4">
     <h2>Best beers</h2>
@@ -53,5 +55,5 @@
       <li> <%= rating %> <%= link_to rating.user.username, user_path(rating.user)%></li>
   <% end %>
 </ul>
-
+<% end %>
 <%= link_to 'New Ratings', new_rating_path, class:'btn btn-success' %>

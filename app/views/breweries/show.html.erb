@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<% cache @brewery do %>
+
 <h2><%=@brewery.name%>
   <% if not @brewery.active  %>
       <span class="label label-info">retired</span>
@@ -12,11 +14,11 @@
 
 <p>Number of beers <%= @brewery.beers.count %></p>
 
-<ul>
+<p>
   <% @brewery.beers.each do |beer| %>
       <%= link_to beer.name, beer %>
   <% end %>
-</ul>
+</p>
 
 <p>
   <% if @brewery.ratings.empty? %>
@@ -25,6 +27,8 @@
       Has <%=pluralize(@brewery.ratings.count, 'rating') %>, average <%= @brewery.average_rating %>
   <% end %>
 </p>
+
+<% end %>
 
 <% if not current_user.nil? %>
     <%= link_to 'Edit', edit_brewery_path(@brewery), class:"btn btn-info" %>
