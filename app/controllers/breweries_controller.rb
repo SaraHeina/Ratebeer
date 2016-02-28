@@ -19,9 +19,9 @@ class BreweriesController < ApplicationController
     @active_breweries = Brewery.active
     @retired_breweries = Brewery.retired
 
-    order = params[:order] || 'name'
+    @order = params[:order] || 'name'
 
-    if order == 'name'
+    if @order == 'name'
       if session[:last_order] == 'name_a'
         active = @active_breweries.sort_by{ |b| b.name }.reverse
         retired = @retired_breweries.sort_by{ |b| b.name }.reverse
@@ -31,7 +31,7 @@ class BreweriesController < ApplicationController
         retired = @retired_breweries.sort_by{ |b| b.name }
         session[:last_order] = 'name_a'
       end
-    elsif order == 'year'
+    elsif @order == 'year'
       if session[:last_order] == 'year_a'
         active = @active_breweries.sort_by{ |b| b.year }.reverse
         retired = @retired_breweries.sort_by{ |b| b.year }.reverse

@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   get 'ngbeerlist', to:'beers#nglist'
 
+  get 'auth/:provider/callback', to: 'sessions#create_oauth'
+
   resources :places, only:[:index, :show]
   post 'places', to:'places#search'
 

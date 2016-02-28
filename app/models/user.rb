@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   validates :username, uniqueness: true
   validates :username, length: { minimum: 3 }
-  validates :username, length: { maximum: 15 }
+  validates :username, length: { maximum: 50 }
 
   PASSWORD_FORMAT = /\A
   (?=.*\d)           # Must contain a digit

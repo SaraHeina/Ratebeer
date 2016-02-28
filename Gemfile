@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'omniauth-github'
+
 gem 'jquery-turbolinks'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
