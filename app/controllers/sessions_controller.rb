@@ -21,11 +21,11 @@ class SessionsController < ApplicationController
   def create_oauth
     user = User.find_by username: env["omniauth.auth"]["info"]["nickname"]
     if user
-      if user.isfrozen
+      if not user.isfrozen
         session[:user_id] = user.id
         redirect_to user_path(user), notice: "Welcome back!"
       else
-        redirect_to :back, notice: "Your account is frozen, please contact admin"
+        redirect_to signin_path, notice: "Your account is frozen, please contact admin"
       end
     else
       username = env["omniauth.auth"]["info"]["nickname"]

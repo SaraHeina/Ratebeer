@@ -50,7 +50,27 @@ class User < ActiveRecord::Base
 
 
   def self.top(n)
-    sorted_by_rating_in_desc_order = User.all.sort_by{ |b| -(b.average_rating||0)}
+    sorted_by_rating_in_desc_order = User.all.sort_by{ |b| -(b.ratings.size||0)}
     return sorted_by_rating_in_desc_order.first(n)
   end
+
+  def beers_count
+    lista = []
+    luku = 0
+    lista.push(beers.first)
+    beers.each do |beer|
+      lista.each do |beer1|
+        if beer1 == beer
+          luku = 1
+        end
+      end
+      if luku == 0
+        lista.push(beer)
+      else
+        luku = 0
+      end
+    end
+    return lista
+  end
+
 end

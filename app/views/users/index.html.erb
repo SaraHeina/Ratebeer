@@ -15,7 +15,7 @@
   <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.username, user %></td>
-        <td><%= user.beers.size %></td>
+        <td><%= user.beers_count.size %></td>
         <td><%= user.ratings.size %></td>
         <td>
           <% if current_user%>

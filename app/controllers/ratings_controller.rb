@@ -3,10 +3,10 @@ class RatingsController < ApplicationController
 
   def index
     # Expires joka 15 minuutti.
-    Rails.cache.write("beer top 3", Beer.top(3), expires_in:15.minutes) if not_in_cache
-    Rails.cache.write("brewery top 3", Brewery.top(3), expires_in:15.minutes) if not_in_cache
-    Rails.cache.write("user top 3", User.top(3), expires_in:15.minutes) if not_in_cache
-    Rails.cache.write("style top 3", Style.top(3), expires_in:15.minutes) if not_in_cache
+    Rails.cache.write("beer top 3", Beer.top(3), expires_in:15.minutes) if not in_cache
+    Rails.cache.write("brewery top 3", Brewery.top(3), expires_in:15.minutes) if not in_cache
+    Rails.cache.write("user top 3", User.top(3), expires_in:15.minutes) if not in_cache
+    Rails.cache.write("style top 3", Style.top(3), expires_in:15.minutes) if not in_cache
 
     @top_beers = Rails.cache.read "beer top 3"
     @top_breweries = Rails.cache.read "brewery top 3"
@@ -20,11 +20,11 @@ class RatingsController < ApplicationController
   end
 
   # tarkistaa löytyykö kaikki cachesta
-  def not_in_cache
-    fragment_exist?( "brewery top 3" )
-    fragment_exist?( "beer top 3" )
-    fragment_exist?( "user top 3" )
-    fragment_exist?( "style top 3" )
+  def in_cache
+    Rails.cache.exist?( "brewery top 3" )
+    Rails.cache.exist?( "beer top 3" )
+    Rails.cache.exist?( "user top 3" )
+    Rails.cache.exist?( "style top 3" )
   end
 
   # Päivittää taustalla, ei käytössä
