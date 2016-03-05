@@ -56,6 +56,9 @@ class User < ActiveRecord::Base
 
   def beers_count
     lista = []
+    if beers.size == 0
+      return lista
+    end
     luku = 0
     lista.push(beers.first)
     beers.each do |beer|
