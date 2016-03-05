@@ -33,7 +33,6 @@ Rails.application.routes.draw do
 
   get 'auth/:provider/callback', to: 'sessions#create_oauth'
 
-  #post 'users/new_oauth', to: 'users#create_oauth_user'
 
   resources :places, only:[:index, :show]
   post 'places', to:'places#search'
