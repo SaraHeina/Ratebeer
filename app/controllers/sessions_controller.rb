@@ -35,7 +35,7 @@ class SessionsController < ApplicationController
 
   def create_oauth_user(username)
     password = greate_password
-    @user = User.new(username: username, password: password, password_confirmation: password, isfrozen: true)
+    @user = User.new(username: username, password: password, password_confirmation: password, isfrozen: false)
 
     if @user.save
       redirect_to @user, notice: 'User was successfully created.'
